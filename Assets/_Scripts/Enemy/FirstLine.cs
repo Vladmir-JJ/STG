@@ -47,16 +47,18 @@ namespace JJ.STG.Enemy
         {
             GameObject Enemy = Instantiate(TankPrefab, new Vector3(x,y,0), Quaternion.identity);
             Enemy.transform.SetParent(this.transform.GetChild(0));
-            Enemy enemyScript = Enemy.GetComponent<Enemy>();
+            EnemyScript enemyScript = Enemy.GetComponent<EnemyScript>();
             enemyScript.MyLine = ID;
+            enemyScript.cID = x;
             TempSpawnList.Add(Enemy);            
         }
         public void SpawnShooterEnemy(int x, int y, int ID)
         {
             GameObject Enemy = Instantiate(ShooterPrefab, new Vector3(x, y, 0), Quaternion.identity);
             Enemy.transform.SetParent(this.transform.GetChild(0));
-            Enemy enemyScript = Enemy.GetComponent<Enemy>();
+            EnemyScript enemyScript = Enemy.GetComponent<EnemyScript>();
             enemyScript.MyLine = ID;
+            enemyScript.cID = x;
             TempSpawnList.Add(Enemy);
         }
         IEnumerator WaitForFade()

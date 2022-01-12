@@ -13,8 +13,7 @@ namespace JJ.STG.Enemy
             line = firstLine.GetComponent<FirstLine>();            
         }
         private void OnCollisionEnter(Collision col)
-        {
-            //UPDATE
+        {            
             //"Przeciwnicy cyklicznie poruszaj¹ siê w lewo (do krawêdzi mapy), prawo (do krawêdzi mapy), kawa³ek w dó³."
             //so left col = bounce back, right col = bounce + drop
             if (col.gameObject.tag == "Bouncer")

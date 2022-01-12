@@ -3,6 +3,7 @@ namespace JJ.STG.Enemy
 {
     public static class Presets
     {
+        //For potential future use - code in SetUpLevel uses theese
         //allowed spawnpoints on x axis of foes
         public static List<int> ListOfX8 = new List<int>()
         {
@@ -39,7 +40,7 @@ namespace JJ.STG.Enemy
         //where first line of enemies starts - level ID is used as index to call list position
         public static List<int> StartPosY = new List<int>()
         {
-            { 10 }, { 8 }, { 6 }, { 6 }, { 5 }
+            { 0 }, { 10 }, { 8 }, { 6 }, { 6 }, { 5 } //zero is unused - it's menu reference
         };
         public static List<List<int>> poolOfSpawns = new List<List<int>>()
         {
