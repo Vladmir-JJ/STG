@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 namespace JJ.STG.Player
 {
@@ -8,24 +6,25 @@ namespace JJ.STG.Player
         private Transform bulletSpawner;
         [SerializeField]
         private GameObject bulletPrefab;
-        [SerializeField]
-        private float reloadTime = 2f;
+        public float ReloadTime { get; set; }
+        private float normalReloadTime = 2f;
         private float timer = 0f;
         //[SerializeField]
         //private float bulletSpeed = 50f;
 
         void Start()
         {
+            RestoreNormalReload();
             timer = 0;
             bulletSpawner = transform.GetChild(0);
         }
         private void FixedUpdate()
         {
-            if (timer < reloadTime)
+            if (timer < ReloadTime)
             {
                 timer += Time.deltaTime;
             }
-            else if(timer >= reloadTime)
+            else if(timer >= ReloadTime)
             {
                 timer = 0;
                 SpawnBullet();
@@ -35,6 +34,10 @@ namespace JJ.STG.Player
         {
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawner.position, Quaternion.identity);
             //bullet.transform.Translate(Vector3.up * Time.deltaTime * bulletSpeed);
+        }
+        public void RestoreNormalReload()
+        {
+            ReloadTime = normalReloadTime;
         }
     }
 }
