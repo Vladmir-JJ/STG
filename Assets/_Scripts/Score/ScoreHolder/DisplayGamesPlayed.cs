@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 namespace JJ.STG.Main
@@ -7,8 +5,7 @@ namespace JJ.STG.Main
     public class DisplayGamesPlayed : MonoBehaviour
     {
         private TextMeshProUGUI gamesPlayed;
-        public int gP { get; set; }
-        //private int gP;
+        public int gP { get; set; }        
         private void Start()
         {
             gamesPlayed = GetComponent<TextMeshProUGUI>();

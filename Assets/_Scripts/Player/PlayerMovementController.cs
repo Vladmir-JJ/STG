@@ -1,13 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
 namespace JJ.STG.Player
 {
     public class PlayerMovementController : MonoBehaviour
-    {
-        private GameObject buttonLO;
-        private GameObject buttonRO;
+    {        
         [SerializeField]
         private float playerSpeed;
         private float xLeft = -9.5f;
@@ -15,9 +10,7 @@ namespace JJ.STG.Player
         bool movingLeft;
         bool movingRight;
         void Start()
-        {
-           // buttonLO = GameObject.FindGameObjectWithTag("BL");
-           // buttonRO = GameObject.FindGameObjectWithTag("BR");           
+        {                    
             movingLeft = false;
             movingRight = false;
         }  

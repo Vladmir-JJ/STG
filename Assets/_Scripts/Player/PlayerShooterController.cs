@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 namespace JJ.STG.Player
 {
@@ -10,10 +8,7 @@ namespace JJ.STG.Player
         private GameObject bulletPrefab;
         [SerializeField]
         private float reloadTime = 2f;
-        private float timer = 0f;
-        //[SerializeField]
-        //private float bulletSpeed = 50f;
-
+        private float timer = 0f;        
         void Start()
         {
             timer = 0;
@@ -33,8 +28,7 @@ namespace JJ.STG.Player
         }
         private void SpawnBullet()
         {
-            GameObject bullet = Instantiate(bulletPrefab, bulletSpawner.position, Quaternion.identity);
-            //bullet.transform.Translate(Vector3.up * Time.deltaTime * bulletSpeed);
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawner.position, Quaternion.identity);            
         }
     }
 }

@@ -1,5 +1,4 @@
 using JJ.STG.Main;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 namespace JJ.STG.Enemy
@@ -15,14 +14,14 @@ namespace JJ.STG.Enemy
             scoreCounter.Score = 0;
                 var startPosY = Presets.StartPosY[levelID];
                 line.transform.position = new Vector3(line.transform.position.x, startPosY, line.transform.position.z);
-                var lineSpawns = Presets.poolOfSpawns[7]; /////////require upgrade!
+                var lineSpawns = Presets.poolOfSpawns[7]; //possible upgrade to randomize number of enemies per each line
             damageProcessor.EnemiesInLine = lineSpawns.Count;
                 var linesQuantity = Presets.NumberOfLinesDic[startPosY];
                 for (int i = 0; i < (linesQuantity - 2); i++)
                 {                
                     foreach (int spawn in lineSpawns)
                     {
-                    lineScript.SpawnTankEnemy(spawn, startPosY, i);//////////
+                    lineScript.SpawnTankEnemy(spawn, startPosY, i);
                     }
                 startPosY += 2;
                 damageProcessor.LinesOfEnemies.Add(lineScript.TempSpawnList);                

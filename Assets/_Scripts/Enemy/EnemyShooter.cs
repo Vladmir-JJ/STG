@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 namespace JJ.STG.Enemy
 {
@@ -16,7 +14,7 @@ namespace JJ.STG.Enemy
         private GameObject bulletPrefab;
         private void Start()
         {
-            //strzelaj¹ce (wystrzeliwuj¹ pocisk przed siebie co 4-7 sekund
+            //strzelaj¹ce (wystrzeliwuj¹ pocisk przed siebie co 4-7 sekund)
             reloadTime = Random.Range(4, 7);
         }
         private void FixedUpdate()

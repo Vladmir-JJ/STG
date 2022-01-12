@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UI;
 namespace JJ.STG.Main
 {
     public class TopScoresCloser : MonoBehaviour

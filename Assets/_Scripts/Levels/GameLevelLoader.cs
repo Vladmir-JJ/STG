@@ -1,9 +1,7 @@
-using JJ.STG.Enemy;
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 namespace JJ.STG.Main
 {
     public class GameLevelLoader : MonoBehaviour
@@ -58,12 +56,7 @@ namespace JJ.STG.Main
             {
                 if (scoreCounter.Score < 0 || ColidedWithBottom == true)
                 {
-                    GameOver();
-                    /*gameTheater.SetActive(false);
-                    steeringButtons.SetActive(false);
-                    gameDisplay.SetActive(false);
-                    gameOver.SetActive(true);
-                    menuButton.SetActive(true);*/
+                    GameOver();                    
                 }
                 else if(enemyContainer.childCount == 0 && delayTick == true)
                 {
@@ -126,8 +119,7 @@ namespace JJ.STG.Main
             bestResGO.SetActive(true);
             var youWasDisplayed = false;
             ScoreHolder.savedScore.Add(scoreCounter.Score);
-            SaveSystem.SaveGame(ScoreHolder.gamesPlayed, ScoreHolder.savedScore);
-            //ScoreHolder.UpdateMenu();
+            SaveSystem.SaveGame(ScoreHolder.gamesPlayed, ScoreHolder.savedScore);           
             if (ScoreHolder.savedScore.Count < 10)
             {
                 ScoreHolder.savedScore.Sort();

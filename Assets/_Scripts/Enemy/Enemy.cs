@@ -1,17 +1,12 @@
-using System.Collections;
+using JJ.STG.Main;
 using System.Collections.Generic;
 using UnityEngine;
-using JJ.STG.Main;
 namespace JJ.STG.Enemy
 {
     [RequireComponent(typeof(Rigidbody2D))]    
     public class Enemy : MonoBehaviour
     {
-        /*[SerializeField]
-        private float stepForward = 0.5f;
-        private bool recentlyCollided = false;
-        private float minX = -10.5f;
-        private float maxX = 10.5f;*/
+       
         private DamageProcessor damageProcessor;
         [SerializeField]
         private FirstLine line;        
@@ -63,4 +58,3 @@ namespace JJ.STG.Enemy
         }
     }
 }
-

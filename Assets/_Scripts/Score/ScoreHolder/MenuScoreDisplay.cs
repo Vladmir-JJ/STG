@@ -1,20 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 namespace JJ.STG.Main
 {
-
     public class MenuScoreDisplay : MonoBehaviour
     {
         private TextMeshProUGUI resultsDisplay;
-        public List<int> ListToExport { get; set; }
-        private void Start()
-        {
-            //resultsDisplay = GetComponent<TextMeshProUGUI>();
-            //Debug.Log(resultsDisplay);
-        }
+        public List<int> ListToExport { get; set; }        
         private void OnEnable()
         {
             ScoreHolder.UpdateMenu(this);
@@ -30,11 +23,7 @@ namespace JJ.STG.Main
                     resultsDisplay.text = "";
                     list.Sort();
                     list.Reverse();
-                    ListToExport = list;
-                    /*foreach (int score in list)
-                    {
-                        resultsDisplay.text += (score + "\n");
-                    }*/
+                    ListToExport = list;                    
                     for (int i = 0; i < list.Count; i++)
                     {
                         resultsDisplay.text += ((i + 1) + ". : " + list[i] + "\n");
@@ -50,30 +39,8 @@ namespace JJ.STG.Main
                     {
                         resultsDisplay.text += ((i + 1) + ". : " + list[i] + "\n");
                     }
-            }
-        }
-            /*if (list.Count < 10)
-            {
-                list.Sort();
-                list.Reverse();
-                *//*foreach (int score in list)
-                {                
-                        resultsDisplay.text += (score + "\n");
-                }*//*
-                for (int i = 0; i < list.Count; i++)
-                {
-                    resultsDisplay.text += ((i + 1) + ". : " + list[i] + "\n");
                 }
-            }
-            else if (list.Count >= 10)
-            {
-                list.Sort();
-                list.Reverse();
-                for (int i = 0; i < 10; i++)
-                {
-                    resultsDisplay.text += ((i + 1) + ". : " + list[i] + "\n");
-                }
-            }*/
+            }            
         }
     }
 }

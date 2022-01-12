@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 namespace JJ.STG.Main
@@ -7,8 +5,7 @@ namespace JJ.STG.Main
     public class StatsButtonClicker : MonoBehaviour
     {
         [SerializeField]
-        private GameObject stats;
-       // private GameObject statsButtonO;
+        private GameObject stats;      
         void Start()
         {
             Button statsButton = GetComponent<Button>();
