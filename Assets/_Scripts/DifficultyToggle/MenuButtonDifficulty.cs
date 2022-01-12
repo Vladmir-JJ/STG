@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
 namespace JJ.STG.Difficulty
 {
-    public class MenuButton : MonoBehaviour
+    public class MenuButtonDifficulty : MonoBehaviour
     {
         private Button button;
         private bool easy;
