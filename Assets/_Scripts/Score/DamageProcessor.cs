@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JJ.STG.Difficulty;
 namespace JJ.STG.Main
 {
     public class DamageProcessor : MonoBehaviour
@@ -23,7 +24,8 @@ namespace JJ.STG.Main
             StartCoroutine("UpdateDelay");
         }
         void Update()
-        {            
+        {
+            EasyMode = StaticGlobalDifficulty.isEasy;
             if(delayed == true)
             {               
                 for (int i = 0; i < LinesOfEnemies.Count; i++)
