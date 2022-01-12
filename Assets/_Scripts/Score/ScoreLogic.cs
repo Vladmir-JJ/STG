@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 namespace JJ.STG.Main
 {
@@ -13,7 +11,7 @@ namespace JJ.STG.Main
         public static void RemoveScore(int ammount)
         {
             ScoreCounter scoreCounter = GameObject.FindGameObjectWithTag("ScoreCounter").GetComponent<ScoreCounter>();
-            scoreCounter.Score -= ammount;
+            scoreCounter.Score -= ammount;            
         }
     }
 }

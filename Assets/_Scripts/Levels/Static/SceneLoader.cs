@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 namespace JJ.STG.Main
 {
@@ -8,8 +5,7 @@ namespace JJ.STG.Main
     {
         public static void LoadScene(int sceneId)
         {
-            SceneManager.LoadScene(sceneId);
-            Debug.Log("Scene loaded");
+            SceneManager.LoadScene(sceneId);            
         }
     }
 }

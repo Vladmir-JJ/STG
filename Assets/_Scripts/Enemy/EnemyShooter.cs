@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 namespace JJ.STG.Enemy
 {
@@ -14,10 +12,14 @@ namespace JJ.STG.Enemy
         private GameObject bulletSpawner;
         [SerializeField]
         private GameObject bulletPrefab;
+        private EnemyScript enemyScript;
+        private int shooterId;
         private void Start()
         {
-            //strzelaj¹ce (wystrzeliwuj¹ pocisk przed siebie co 4-7 sekund
+            //strzelaj¹ce (wystrzeliwuj¹ pocisk przed siebie co 4-7 sekund)
             reloadTime = Random.Range(4, 7);
+            enemyScript = GetComponent<EnemyScript>();
+            shooterId = enemyScript.cID;
         }
         private void FixedUpdate()
         {
@@ -33,13 +35,13 @@ namespace JJ.STG.Enemy
                 {
                     reloadTime = minAllowedShotDelay;
                 }                    
-                SpawnBullet();
+                SpawnBullet(shooterId);
             }
         }
-        private void SpawnBullet()
+        private void SpawnBullet(int id)
         {
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawner.transform.position, Quaternion.identity);
+            bullet.GetComponent<EnemyBullet>().ShooterId = id;
         }
     }
 }
-

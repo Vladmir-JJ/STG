@@ -1,17 +1,12 @@
+using JJ.STG.Main;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using JJ.STG.Main;
 namespace JJ.STG.Enemy
 {
     [RequireComponent(typeof(Rigidbody2D))]    
-    public class Enemy : MonoBehaviour
-    {
-        /*[SerializeField]
-        private float stepForward = 0.5f;
-        private bool recentlyCollided = false;
-        private float minX = -10.5f;
-        private float maxX = 10.5f;*/
+    public class EnemyScript : MonoBehaviour
+    {       
         private DamageProcessor damageProcessor;
         [SerializeField]
         private FirstLine line;        
@@ -26,6 +21,7 @@ namespace JJ.STG.Enemy
         private AudioSource banger;
         [SerializeField]
         private AudioClip bang;
+        public int cID { get; set; }        
         private void Start()
         {
             bangContainer = GameObject.FindGameObjectWithTag("banger");
@@ -43,24 +39,37 @@ namespace JJ.STG.Enemy
             }
             else if(col.gameObject.tag == "PlayerBullet")
             {
-                line.MovementSpeed = line.MovementSpeed + speedIncrementationOnKill;
+                line.MovementSpeed = line.MovementSpeed + speedIncrementationOnKill;                
+                damageProcessor.enemiesInCollumnDic[cID]--;
                 KillShotSpeedIcrementation.IncreaseRateOfFire(shootIncreaseOnKill);
                 ScoreLogic.AddScore();
                 Destroy(this.gameObject);                
             }
             else if(col.gameObject.tag == "Player")
-            {                
-                ScoreLogic.RemoveScore(damageProcessor.CurrentDamage);
-                banger.PlayOneShot(bang);
-                Destroy(this.gameObject);
+            {
+                bool destroyed = false;
+                if(destroyed == false)
+                {
+                    destroyed = true;
+                    damageProcessor.CurrentCollisonId = cID;
+                    StartCoroutine("SkipFramesCol");
+                }                
             }
+        }        
+        IEnumerator SkipFramesCol()
+        {
+            yield return new WaitForSeconds(0.01f);           
+            ScoreLogic.RemoveScore(damageProcessor.CurrentDamage);
+            damageProcessor.enemiesInCollumnDic[cID]--;
+            banger.PlayOneShot(bang);
+            Destroy(this.gameObject);
+            yield break;
         }
         private void OnDestroy()
         {
-            List<GameObject> temp = damageProcessor.LinesOfEnemies[MyLine];            
+            List<GameObject> temp = damageProcessor.LinesOfEnemies[MyLine];
             temp.RemoveAt(temp.Count - 1);
             damageProcessor.LinesOfEnemies[MyLine] = temp;
-        }
+        }        
     }
 }
-

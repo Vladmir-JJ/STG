@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 namespace JJ.STG.Main
 {
     [System.Serializable]
@@ -8,7 +6,6 @@ namespace JJ.STG.Main
     {
         public int gamesPlayed;
         public int[] topTen;
-       // public GameData(DisplayGamesPlayed gamesPlayedScript, MenuScoreDisplay listOfTopScores)
        public GameData(int timesPlayed, List<int> scoreList)
         {
             gamesPlayed = timesPlayed;

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 namespace JJ.STG.Main
@@ -48,8 +47,7 @@ namespace JJ.STG.Main
             StartCoroutine("Fade");
             ScoreHolder.gamesPlayed++;
             musicPlayer.SetActive(false);
-            audioSource.PlayOneShot(audioBreak);
-            //displayGamesScript.UpdateGamesPlayed();            
+            audioSource.PlayOneShot(audioBreak);                       
         }
         IEnumerator Fade()
         {
